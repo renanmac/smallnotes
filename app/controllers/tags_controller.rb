@@ -2,7 +2,7 @@ class TagsController < ApplicationController
   def add_to_note
     @tag = Tag.find_or_create_by(title: params[:title], user: current_user)
     @note = Note.find params[:note_id]
-    @note.tags &lt;&lt; @tag
+    @note.tags << @tag
 
     render json: {message: "Tag adicionada com sucesso!"}, status: :ok
   end
